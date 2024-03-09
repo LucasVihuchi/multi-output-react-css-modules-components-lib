@@ -1,7 +1,6 @@
 {
   "name": "multi-output-components-react-tailwind-lib",
   "version": "0.1.0",
-  "private": true,
   "license": "MIT",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -11,30 +10,16 @@
     "name": "Lucas Vihuchi"
   },
   "dependencies": {
-    "@testing-library/jest-dom": "^5.14.1",
-    "@testing-library/react": "^13.0.0",
-    "@testing-library/user-event": "^13.2.1",
-    "@types/jest": "^27.0.1",
-    "@types/node": "^16.7.13",
-    "@types/react": "^18.0.0",
-    "@types/react-dom": "^18.0.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1",
-    "typescript": "^4.4.2",
-    "web-vitals": "^2.1.0"
+    "react-dom": "^18.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "rollup -c",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+    "lint": "eslint src",
+    "lint:fix": "eslint src --fix",
+    "test": "jest",
+    "test:update": "jest -u"
   },
   "browserslist": {
     "production": [
@@ -53,11 +38,31 @@
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-terser": "^0.4.4",
     "@rollup/plugin-typescript": "^11.1.6",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^13.0.0",
+    "@testing-library/user-event": "^13.2.1",
+    "@types/eslint": "^8",
+    "@types/jest": "^29.5.12",
+    "@types/node": "^16.7.13",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
     "@types/rollup-plugin-peer-deps-external": "^2",
+    "@typescript-eslint/eslint-plugin": "6.4.0",
+    "eslint": "8.0.1",
+    "eslint-config-standard-with-typescript": "^43.0.1",
+    "eslint-import-resolver-typescript": "^3.6.1",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-n": "16.0.0",
+    "eslint-plugin-promise": "6.0.0",
+    "eslint-plugin-react": "^7.34.0",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
     "rollup": "^4.12.1",
     "rollup-plugin-dts": "^6.1.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss": "^4.0.2",
+    "ts-jest": "^29.1.2",
+    "typescript": "^4.4.2",
     "typescript-plugin-css-modules": "^5.1.0"
   }
 }
