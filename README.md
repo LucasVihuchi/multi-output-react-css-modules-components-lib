@@ -48,7 +48,6 @@ yarn publish
 Other useful commands:
 
 ```sh
-yarn build -> # Build project
 yarn test -> # Tests with coverage
 yarn test:update -> # Tests updating snapshots
 yarn lint -> # Verify code formatting
