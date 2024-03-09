@@ -3,7 +3,11 @@ module.exports = {
     browser: true,
     es2021: true,
   },
-  extends: ['standard-with-typescript', 'plugin:react/recommended'],
+  extends: [
+    'standard-with-typescript',
+    'plugin:react/recommended',
+    'plugin:storybook/recommended',
+  ],
   overrides: [
     {
       env: {
@@ -29,6 +33,7 @@ module.exports = {
     semi: [2, 'always'],
     '@typescript-eslint/semi': 'off',
     'import/no-unresolved': 'error',
+    '@typescript-eslint/strict-boolean-expressions': 'off',
   },
   ignorePatterns: ['.eslintrc.cjs', '*.config.js'],
   settings: {
