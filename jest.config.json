@@ -1,0 +1,26 @@
+{
+  "preset": "ts-jest",
+  "testEnvironment": "jsdom",
+  "roots": ["<rootDir>"],
+  "setupFilesAfterEnv": ["<rootDir>/src/setupTests.ts"],
+  "transform": {
+    "^.+\\.{ts,tsx}?$": "ts-jest"
+  },
+  "testRegex": "\/__tests__\/.+\\.(test|jest)\\.(ts|tsx|js|jsx)$",
+  "moduleFileExtensions": ["ts", "js", "jsx", "tsx"],
+  "collectCoverage": true,
+  "collectCoverageFrom": [
+    "src/**/*.{ts,tsx}*",
+    "!src/**/*.d.ts"
+  ],
+  "coveragePathIgnorePatterns": [
+    "node_modules",
+    "src/__tests__",
+    "src/__mocks__"
+],
+  "clearMocks": true,
+  "coverageDirectory": "coverage",
+  "moduleNameMapper": {
+    "\\.(css|less)$": "<rootDir>/src/__mocks__/styleMock.js"
+  }
+}

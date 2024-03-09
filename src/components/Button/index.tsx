@@ -6,7 +6,7 @@ const Button = ({
   children,
   onClick,
   onAuxClick,
-  disabled,
+  disabled
 }: ButtonProps): JSX.Element | null => (
   <button
     className={styles['lib-button']}
