@@ -1,0 +1,157 @@
+name: Code Quality
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  install:
+    name: Install Node Dependencies
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        id: checkout
+        uses: actions/checkout@v4
+
+      - uses: actions/cache@v4
+        id: yarn-cache
+        with:
+          path: |
+            node_modules
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      - name: Setup Node 20
+        id: setup-node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+          cache: yarn
+
+      - name: Install Dependencies
+        id: yarn
+        run: yarn
+
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    needs: [install]
+
+    steps:
+      - name: Checkout
+        id: checkout
+        uses: actions/checkout@v4
+
+      - uses: actions/cache@v4
+        id: yarn-cache
+        with:
+          path: |
+            node_modules
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      - name: Setup Node 20
+        id: setup-node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+          cache: yarn
+
+      - name: Run ESlint
+        id: eslint
+        run: yarn lint
+
+  test:
+    name: Tests
+    runs-on: ubuntu-latest
+    needs: [install]
+
+    steps:
+      - name: Checkout
+        id: checkout
+        uses: actions/checkout@v4
+
+      - uses: actions/cache@v4
+        id: yarn-cache
+        with:
+          path: |
+            node_modules
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      - name: Setup Node 20
+        id: setup-node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+          cache: yarn
+
+      - name: Run Tests
+        id: tests
+        run: yarn test
+
+  build-library:
+    name: Build library
+    runs-on: ubuntu-latest
+    needs: [install]
+
+    steps:
+      - name: Checkout
+        id: checkout
+        uses: actions/checkout@v4
+
+      - uses: actions/cache@v4
+        id: yarn-cache
+        with:
+          path: |
+            node_modules
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      - name: Setup Node 20
+        id: setup-node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+          cache: yarn
+
+      - name: Build library
+        id: build-libary
+        run: yarn build
+
+  build-storybook:
+    name: Build storybook
+    runs-on: ubuntu-latest
+    needs: [install]
+
+    steps:
+      - name: Checkout
+        id: checkout
+        uses: actions/checkout@v4
+
+      - uses: actions/cache@v4
+        id: yarn-cache
+        with:
+          path: |
+            node_modules
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      - name: Setup Node 20
+        id: setup-node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+          cache: yarn
+
+      - name: Build storybook
+        id: build-libary
+        run: yarn build:storybook
