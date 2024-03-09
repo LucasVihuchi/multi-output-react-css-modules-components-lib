@@ -10,8 +10,9 @@
   "moduleFileExtensions": ["ts", "js", "jsx", "tsx"],
   "collectCoverage": true,
   "collectCoverageFrom": [
-    "src/**/*.{ts,tsx}*",
-    "!src/**/*.d.ts"
+    "src/**/*.{ts,tsx}",
+    "!src/**/*.d.ts",
+    "!src/**/*.stories.ts"
   ],
   "coveragePathIgnorePatterns": [
     "node_modules",
